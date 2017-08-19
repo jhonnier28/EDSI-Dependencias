@@ -9,17 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var forms_1 = require('@angular/forms');
+var FormularioexpComponent = (function () {
+    function FormularioexpComponent() {
+        this.formulario = new forms_1.FormGroup({
+            nombre: new forms_1.FormControl('Jaime', forms_1.Validators.required),
+            correo: new forms_1.FormControl('jhonnier.sanchez', forms_1.Validators.required)
+        });
     }
-    AppComponent = __decorate([
+    FormularioexpComponent.prototype.enviarDatos = function () {
+        console.log(this.formulario);
+    };
+    FormularioexpComponent = __decorate([
         core_1.Component({
-            selector: 'mi-aplicacion',
-            template: "<h1>Aprende Angular</h1>\n            <!--formulario></formulario-->\n            <!--formularioEstudiante></formularioEstudiante-->\n            <formularioexp></formularioexp>\n            "
+            selector: 'formularioexp',
+            templateUrl: './app/formularioexp.component.html',
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], FormularioexpComponent);
+    return FormularioexpComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.FormularioexpComponent = FormularioexpComponent;
+//# sourceMappingURL=formularioexp.component.js.map

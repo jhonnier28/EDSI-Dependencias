@@ -11,15 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
+var forms_2 = require('@angular/forms');
 var formulario_component_1 = require('./formulario.component');
+var formularioEstudiante_component_1 = require('./formularioEstudiante.component');
+var formularioexp_component_1 = require('./formularioexp.component');
 var app_component_1 = require('./app.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent, formulario_component_1.FormularioComponent],
+            imports: [platform_browser_1.BrowserModule, forms_2.FormsModule, forms_1.ReactiveFormsModule],
+            declarations: [formularioexp_component_1.FormularioexpComponent, app_component_1.AppComponent, formulario_component_1.FormularioComponent, formularioEstudiante_component_1.FormularioEstudiante],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

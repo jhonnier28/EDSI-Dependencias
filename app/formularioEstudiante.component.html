@@ -1,0 +1,81 @@
+<form  (ngSubmit)="enviarFormulario(formulario)" #formulario="ngForm">
+        <fieldset class="form-group">
+                <label for="nombres">Nombre</label>
+                <input type="text" [(ngModel)]="estudiante.nombres" class="form-control" id="nombres" ngModel name="nombres" #nombres="ngModel" minlength="8"  required/>
+                  
+                <div *ngIf="nombres.errors">
+                    <div  class="alert alert-danger" *ngIf="nombres.errors.required && nombres.touched">
+                        El campo es requerido
+                    </div>
+                    <div  class="alert alert-danger" *ngIf="nombres.errors.minlength && nombres.touched">
+                        El campo debe tener 8 caracteres
+                    </div>
+                </div> 
+        </fieldset>
+
+        <fieldset class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" [(ngModel)]="estudiante.apellidos" class="form-control" id="apellidos" ngModel name="apellidos" #apellidos="ngModel" minlength="8"  required/>
+                  
+                <div *ngIf="apellidos.errors">
+                    <div  class="alert alert-danger" *ngIf="apellidos.errors.required && apellidos.touched">
+                        El campo es requerido
+                    </div>
+                    <div  class="alert alert-danger" *ngIf="apellidos.errors.minlength && apellidos.touched">
+                        El campo debe tener 8 caracteres
+                    </div>
+                </div> 
+        </fieldset>
+
+
+        <fieldset class="form-group">
+                <label for="edad">Edad</label>
+                <input type="text" [(ngModel)]="estudiante.edad" class="form-control" id="edad" ngModel name="edad" #edad="ngModel" minlength="8"  required pattern="^\d{1,2}$"/>
+                  
+                <div *ngIf="edad.errors">
+                    <div  class="alert alert-danger" *ngIf="edad.errors.required && edad.touched">
+                        El campo es requerido
+                    </div>
+                    <div  class="alert alert-danger" *ngIf="edad.errors.pattern && edad.touched">
+                        Edad invalida
+                    </div>
+                </div> 
+        </fieldset>
+
+        <fieldset class="form-group">
+                <label for="semestre">Correo</label>
+                <input type="text" [(ngModel)]="estudiante.correo" class="form-control" id="correo" ngModel name="correo" #correo="ngModel" required pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$"/>
+                  
+                <div *ngIf="correo.errors">
+                    <div  class="alert alert-danger" *ngIf="correo.errors.required && correo.touched">
+                        El campo es requerido
+                    </div>
+                    <div  class="alert alert-danger" *ngIf="correo.errors.pattern && correo.touched">
+                        Correo invalido 
+                    </div>
+
+                </div> 
+        </fieldset>
+
+
+
+        <fieldset class="form-group">
+                <label for="semestre">Semestre</label>
+                <input type="text" [(ngModel)]="estudiante.semestre" class="form-control" id="semestre" ngModel name="semestre" #semestre="ngModel" required pattern="^(1|2|3|4|5|6|7|8|9|10)$"/>
+                  
+                <div *ngIf="semestre.errors">
+                    <div  class="alert alert-danger" *ngIf="semestre.errors.required && semestre.touched">
+                        El campo es requerido
+                    </div>
+                    <div  class="alert alert-danger" *ngIf="semestre.errors.pattern && semestre.touched">
+                        Semestre invalido 
+                    </div>
+
+                </div> 
+        </fieldset>
+
+
+
+
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

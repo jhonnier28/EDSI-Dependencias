@@ -1,0 +1,19 @@
+<form  [formGroup] = "formulario" (ngSubmit)="enviarDatos()">
+<fieldset class="form-group">
+    <label for="nombre">Nombre</label>
+    <input id="nombre" type="text" class ="form-control" 
+     formControlName="nombre"/>
+</fieldset>
+
+<div *ngIf="!formulario.controls['nombre'].valid">
+    <div class="alert alert-danger" *ngIf="formulario.controls['nombre'].errors['required']">
+        El campo nombre no debe estar vacío
+    </div>
+</div>
+<fieldset class="form-group">
+    <label for="correo">Correo</label>
+    <input id="correo" type="text" class ="form-control" 
+    formControlName="correo"/>
+</fieldset>
+<button type="submit" class="btn btn-primary" [disabled]="!formulario.valid">Enviar</button>
+</form>
