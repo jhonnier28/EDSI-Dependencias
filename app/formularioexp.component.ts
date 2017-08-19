@@ -21,14 +21,23 @@ export class FormularioexpComponent{
         constructor(){
               this.formulario=new FormGroup({
                     nombre: new FormControl('Jaime',Validators.required),
-                    correo: new FormControl('jhonnier.sanchez',[Validators.required, Validators.pattern('^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$')])
+                    correo: new FormControl('jhonnier.sanchez',[Validators.required, 
+                                                                Validators.pattern('^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$'),
+                                                                this.elCorreoNoEsUnico])
               })  
         }
 
-
         enviarDatos(){
             console.log(this.formulario);
-
         }
 
+
+        //Validacion personal
+        elCorreoNoEsUnico(control: FormControl): {[s:string]:Boolean}{
+                var correos: string[] = ['jhonnier@gmail.com','susana@gmail.com'];
+                if(correos.indexOf(control.value)!=-1){
+                    return {elCorreoNoEsUnico:true}
+                }
+            return null;
+        }
 }

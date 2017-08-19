@@ -14,11 +14,21 @@ var FormularioexpComponent = (function () {
     function FormularioexpComponent() {
         this.formulario = new forms_1.FormGroup({
             nombre: new forms_1.FormControl('Jaime', forms_1.Validators.required),
-            correo: new forms_1.FormControl('jhonnier.sanchez', [forms_1.Validators.required, forms_1.Validators.pattern('^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$')])
+            correo: new forms_1.FormControl('jhonnier.sanchez', [forms_1.Validators.required,
+                forms_1.Validators.pattern('^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$'),
+                this.elCorreoNoEsUnico])
         });
     }
     FormularioexpComponent.prototype.enviarDatos = function () {
         console.log(this.formulario);
+    };
+    //Validacion personal
+    FormularioexpComponent.prototype.elCorreoNoEsUnico = function (control) {
+        var correos = ['jhonnier@gmail.com', 'susana@gmail.com'];
+        if (correos.indexOf(control.value) != -1) {
+            return { elCorreoNoEsUnico: true };
+        }
+        return null;
     };
     FormularioexpComponent = __decorate([
         core_1.Component({

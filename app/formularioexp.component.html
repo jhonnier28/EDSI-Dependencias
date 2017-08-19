@@ -19,7 +19,10 @@
                 El campo correo no debe estar vacío
             </div>
             <div class="alert alert-danger" *ngIf="formulario.controls['correo'].errors['pattern']">
-                    Formato invalido
+                Formato invalido
+            </div>
+            <div class="alert alert-danger" *ngIf="formulario.controls['correo'].errors['elCorreoNoEsUnico']">
+                El correo ya existe
             </div>
      </div>
 </fieldset>
