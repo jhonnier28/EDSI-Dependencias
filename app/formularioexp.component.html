@@ -15,7 +15,7 @@
     <input id="correo" type="text" class ="form-control" 
     formControlName="correo"/>
     <div *ngIf="!formulario.controls['correo'].valid">
-            <div class="alert alert-danger" *ngIf="formulario.controls['correo'].errors['required']">
+            <!--div class="alert alert-danger" *ngIf="formulario.controls['correo'].errors['required']">
                 El campo correo no debe estar vacío
             </div>
             <div class="alert alert-danger" *ngIf="formulario.controls['correo'].errors['pattern']">
@@ -23,8 +23,24 @@
             </div>
             <div class="alert alert-danger" *ngIf="formulario.controls['correo'].errors['elCorreoNoEsUnico']">
                 El correo ya existe
-            </div>
+            </div-->
      </div>
 </fieldset>
+
+<fieldset class="form-group">
+        <label for="numPrimo">No soy un robot</label>
+        <input id="numPrimo" type="text" class ="form-control" 
+         formControlName="numPrimo"/>
+         <div *ngIf="formulario.controls['numPrimo'].errors">
+                <div class="alert alert-danger" *ngIf="formulario.controls['numPrimo'].errors['required']">
+                    El campo nombre no debe estar vacío
+                </div>
+                <div class="alert alert-danger" *ngIf="formulario.controls['numPrimo'].errors['esNumeroPrimoAsync']">
+                    No es numero primo
+                </div>
+         </div>
+    </fieldset>
+
+
 <button type="submit" class="btn btn-primary" [disabled]="!formulario.valid">Enviar</button>
 </form>
