@@ -1,0 +1,25 @@
+<form (ngSubmit)="enviarFormulario(formulario)" #formulario="ngForm">
+    
+    <fieldset class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" [(ngModel)]="estudiante.nombre" class="form-control" id="nombre" ngModel name="nombre" #nombre="ngModel" minlength="5"  required/>
+          
+        <div *ngIf="nombre.errors">
+            <div  class="alert alert-danger" *ngIf="nombre.errors.required && nombre.touched">
+                El campo es requerido
+            </div>
+            <div  class="alert alert-danger" *ngIf="nombre.errors.minlength && nombre.touched">
+                El campo debe tener 5 caracteres
+            </div>
+        </div> 
+    </fieldset>
+    
+    
+    <fieldset class="form-group">
+        <label for="correo">Correo</label>
+        <input type="text" [(ngModel)]="estudiante.correo" id="correo" ngModel name="correo" class="form-control" />
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!formulario.valid">Enviar</button>
+
+</form>
