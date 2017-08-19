@@ -3,17 +3,25 @@
     <label for="nombre">Nombre</label>
     <input id="nombre" type="text" class ="form-control" 
      formControlName="nombre"/>
+     <div *ngIf="!formulario.controls['nombre'].valid">
+            <div class="alert alert-danger" *ngIf="formulario.controls['nombre'].errors['required']">
+                El campo nombre no debe estar vacío
+            </div>
+     </div>
 </fieldset>
 
-<div *ngIf="!formulario.controls['nombre'].valid">
-    <div class="alert alert-danger" *ngIf="formulario.controls['nombre'].errors['required']">
-        El campo nombre no debe estar vacío
-    </div>
-</div>
 <fieldset class="form-group">
     <label for="correo">Correo</label>
     <input id="correo" type="text" class ="form-control" 
     formControlName="correo"/>
+    <div *ngIf="!formulario.controls['correo'].valid">
+            <div class="alert alert-danger" *ngIf="formulario.controls['correo'].errors['required']">
+                El campo correo no debe estar vacío
+            </div>
+            <div class="alert alert-danger" *ngIf="formulario.controls['correo'].errors['pattern']">
+                    Formato invalido
+            </div>
+     </div>
 </fieldset>
 <button type="submit" class="btn btn-primary" [disabled]="!formulario.valid">Enviar</button>
 </form>
